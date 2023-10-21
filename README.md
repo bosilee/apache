@@ -9,61 +9,31 @@ CentOS refer to Apache as httpd and configuration file of httpd is /etc/httpd/ht
 
 # Ubuntu & Debian
 
-Run the following command to install Apache.
+Update Linux:
 
-**apt-get install apache2**
+**sudo apt update**
 
-Run the following command to start the Apache process.
+install Apache:
 
-**/etc/init.d/apache2 start**
+**sudo apt-get install apache2**
 
-Verify that the service is running by executing the following command.
+Start the Apache process:
 
-**/etc/init.d/apache2 status**
+**sudo /etc/init.d/apache2 start**
 
-Run the following command to restart Apache.
+Verify that the service is running:
 
-**/etc/init.d/apache2 restart**
+**sudo /etc/init.d/apache2 status**
 
-
-Configure Apache server
-
-The next step is to set up the web server configuration for the domain. The Apache configuration directory is /etc/apache2 and apache2.conf is main Apache configuration file. Each domain needs its own Virtual Host configuration file.
-
-The configuration files use the .conf extension, and need to be saved in the /etc/apache2/sites-available/ directory.
-
-Create a file at /etc/apache2/sites-available/yourdomain.com.conf and add the following lines to it.
-
-**nano /etc/apache2/sites-available/yourdomain.com.conf**
-
-<virtualhost *:80="">  
-ServerAdmin webmaster@localhost  
-ServerName yourdomain.com  
-ServerAlias www.yourdomain.com  
-DocumentRoot /var/www/yourdomain.com  
-ErrorLog ${APACHE_LOG_DIR}/error.log  
-CustomLog ${APACHE_LOG_DIR}/access.log combined  
-</virtualhost>
-Create a directory for the website and then create index.html file for the website.
-
-**mkdir /var/www/yourdomain.com**
-
-Add some content to index.html.
-
-**vi /var/www/yourdomain.com/index.html**
-
-Restart Apache service for the above changes to take effect.
+Restart Apache:
 
 **/etc/init.d/apache2 restart**
 
-or
+check status:
 
-**sudo systemctl restart apache2**
+**systemctl status apache2**
 
-Open any browser and enter the website URL.
-
-http://yourdomain.com
-
+You should see the apache home page
 
 # CentOS 6
 
@@ -72,15 +42,15 @@ Run the following command to install Apache.
 
 **yum install httpd**
 
-Run the following command to start the Apache process.
+Start the Apache process.
 
 **service httpd start**
 
-Verify that the service is running by executing the following command.
+Verify that the service is running:
 
 **service httpd status**
 
-Run the following command to restart Apache.
+Restart Apache:
 
 **service httpd restart**
 
